@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Proyecto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html#about">Sobre mí</a></li>
+        <li><a href="index.html#skills">Habilidades</a></li>
+        <li><a href="index.html#projects">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <section>
+      <div style="text-align: center;">
+        <h2>Análisis espectrométrico con Regresiones Ridge y Lasso</h2>
+        <hr>
+      </div>
+    </section>
+  
+  <section id="project-details">
+        <h2>Descripción</h2>
+        <p>
+          Los análisis espectrométricos son métodos utilizados en química analítica para determinar la concentración química de una muestra. Se aplican en diversos campos, incluyendo la arqueología, donde resulta importante conocer la composición de elementos culturales. Sin embargo, los análisis químicos directos pueden ser costosos. Por ello, se busca predecir la concentración de compuestos químicos mediante la energía correspondiente a su frecuencia en análisis espectrométricos. No obstante, se enfrenta el desafío de contar con un número menor de muestras en comparación con los predictores. Para superar esta limitación, se utiliza la regularización, en particular los métodos de regresión Ridge y Lasso. Estas técnicas reducen la complejidad del modelo, disminuyendo la varianza y permitiendo una interpretación más sencilla del mismo. De esta manera, se logra una mejor
+          predicción de la composición de vasijas arqueológicas en yacimientos, optimizando recursos y costos</p>
+        <h4>Tecnologias usadas</h4>
+        Lenguaje estadístico R
+  </section>
+
+  <section id="Objetivos">
+      <h2>Objetivo</h2>
+      <p>Comparar métodos de selección y regularización Ridge y Lasso en análisis espectrométricos para predecir la composición 
+          química  de Fe2O3 (Oxido de hierro) en vasijas arqueológicas optimizando recursos y costos.
+      </p>
+  </section>
+
+  <section id="Datos">
+    <h2>Descripción de los datos</h2>
+    <p>Los datos utilizados están conformados por un marco de datos con 180
+      observaciones cada uno:</p>
+    
+      <p>• Variable a predecir: compuesto químico Fe2O3 (Oxido de hierro) en cada vasija</p>
+      
+      <p>• Variables predictoras: 301 variables, las cuales son el espectro de una vasija a la
+        que se le realizó espectrometría de rayos X , es decir, la energía
+        correspondiente a cada frecuencia j , j = 1, 2, · · · , 301:
+        V 1, V 2, · · · , V 301</p>
+     
+      <p>Para realizar el trabajo hemos dividido los datos n = 180 ,de forma
+        aleatoria en datos de entrenamiento y datos de testeo, de la siguiente
+        manera:
+        Entrenamiento = 120
+        Testeo = 60</p>
+  </section>
+
+
+  <section id="Ridge">
+    <h2>regresión Ridge</h2>
+    <p>En las siguiente imagenes mostramos:</p>
+    <p>1. Gráfica de la curva generada por la aplicación de validación cruzada para distintos valores de λ.
+      Observamos que el valor mínimo es 0.8894, correspondiente a 301 variables (log(0.8894) = -0.1172).</p>
+    <p>2. Gráfica de Los valores que van adquiriendo los
+      coeficientes a medida que varía el valor de λ. Dado que la regulación
+      Ridge no selecciona variables, podemos notar que en λmin seleccionado por
+      validación cruzada tendremos todos los 301 coeficientes para el modelo</p>
+    <p>3. Tabla los coeficientes Ridge ajustados al valor de
+      λmin = 0.8894 </p>
+    
+
+    <div class="image-container3">
+      <div>
+        <p>1. Valores de λ regresión Ridge</p>
+        <img src="lamda_Ridge.png">
+    </div>
+    <div>
+        <p>2. Coeficientes para distintos λ</p>
+        <img src="coef_logLambda_R_linea.png">
+    </div>
+    <div>
+      <p>3. Coeficientes Ridge</p>
+      <img src="tabal_ridge.JPG">
+  </div>
+  </div>
+  </section>
+
+  <section id="Ridge">
+    <h2>regresión Lasso</h2>
+    <p>En las siguientes imagenes mostramos:</p>
+    <p>1. Gráfica de la curva generada por la aplicación de validación cruzada para distintos valores de λ.
+      Observamos que el valor mínimo es 0.00089, correspondiente a 67 variables  (log(0.00089) = -7.025).</p>
+    <p>2. Gráfica de los valores que van adquiriendo los
+      coeficientes a medida que varía el valor de λ.  a medida incrementa el valor
+      de λ disminuye la cantidad de coeficientes distintos a cero.</p>
+    <p>3. Tabla los coeficientes Ridge ajustados al valor de
+      λmin = 0.00089 </p>
+    
+
+    <div class="image-container3">
+      <div>
+        <p>1. Valores de λ regresión Ridge</p>
+        <img src="coef_lasso.png">
+    </div>
+    <div>
+        <p>2. Coeficientes para distintos λ</p>
+        <img src="Pyt2_Lasso.png">
+    </div>
+    <div>
+      <p>3. Coeficientes Lasso</p>
+      <img src="t_lsso.JPG">
+    </div>
+  </div>
+  </section>
+
+
+  <section id="MSE y Ajustes">
+    <h2>MSE Ridge y Lasso</h2>
+    <p>En las siguientes imagenes mostramos:</p>
+    <p>1. Tabla de el Error Cuadrático medio MSE, al aplicar
+      las predicciones de los modelos con los datos de test y el mejor λ, es decir,
+      λmin</p>
+    <p>2.Ajuste de Modelo 1:Ajuste del Modelo 1: Debido a que Lasso seleccionó 67 variables 
+      (V26, V27, V31, V32, V34, ..., V180, V183, ..., V300, V301), se eligieron los conjuntos de
+       entrenamiento y prueba correspondientes a esas variables. Luego, se ajustó un nuevo modelo (Modelo 1) 
+       aplicando regresión lineal a los datos de entrenamiento. Para un nivel de significancia de  p &lt; 0.05,
+        se obtuvieron un total de 24 variables significativas.
+    </p>
+    <p>3. Ajuste del Modelo 2: Se ajustó un nuevo modelo (Modelo 2) utilizando regresión lineal con las variables 
+      seleccionadas por el Modelo 1. Para un nivel de significancia de  p &lt; 0.05, se obtuvieron un total de 19 
+      variables significativas.</p>
+      <div class="image-container3">
+        <div>
+          <p>1. Comparación MSE Ridge, Lasso</p>
+          <img src="mse.JPG">
+      </div>
+      <div>
+          <p>2. Coeficientes Modelo 1</p>
+          <img src="comparacion.JPG">
+      </div>
+      <div>
+        <p>3. Coeficientes Modelo 2</p>
+        <img src="coef2.JPG">
+      </div>
+    </div>
+
+
+
+
+  <section id="Anova y MSE">
+    <h2>Anova Modelo 1 y Modelo 2, MSE entre modelos</h2>
+    <p>En las siguientes imagenes mostramos:</p>
+    <p>1.Anova entre el Modelo 1 y Modelo 2, donde el Modelo 2 es un submodelo del Modelo 1,
+       considerando las siguientes hipótesis:</p>
+    <p style="text-indent: 30px;">H0 : Ambos modelos ajustan los datos igualmente bien.</p>
+    <p style="text-indent: 30px;">Ha : El modelo 1 ajusta mejor los datos</p>
+    <p style="text-indent: 30px;">Según los resultados en la tabla adjunta, el estadístico F es 5.5079 
+      y el valor p asociado es prácticamente cero. Por lo tanto, podemos rechazar H0 y concluir que el Modelo 1 ajusta mejor los datos.</p>
+    
+
+    <p>2.Error Cuadrático Medio (MSE) al aplicar las predicciones de los modelos en los datos de prueba utilizando el valor λmín en las
+       regresiones Ridge y Lasso, así como en los modelos de regresión lineal Modelo 1 y Modelo 2.</p>
+      <div class="image-container3">
+        <div>
+          <p>1. Anova Modeo1 y Modelo2</p>
+          <img src="anova.JPG">
+      </div>
+      <div>
+          <p>2. Comparación MSE: Ridge, Lasso, Modelo 1 y Modelo 2</p>
+          <img src="mse2.JPG">
+      </div>
+    </div>
+ </section> 
+
+ <section id="Analisi de resultados">
+  <h2>Anális de resultados</h2>
+  <p>Una vez obtenidos los resultados de los modelos estudiados, podemos destacar lo siguiente:</p>
+  <p>• En cada uno de los modelos, al analizar los coeficientes, observamos que se incluyen los interceptos y los predictores
+     correspondientes a las medidas de análisis espectrométrico, como V 26, V 27, V 32, V 40, V 54, V 92, V 115, V 118, V 124, 
+     V 134, V 149, V 150, V 159, V 167, V 168, V 171, V 173, V 174, V 194, V 243, V 271, V 272 y V 287.</p>
+  <p>• El método Ridge aproxima todos los coeficientes a cero, sin realizar una selección de predictores.</p>
+  <p>• En cambio, el método Lasso realiza una selección de 67 predictores, lo que resulta en un modelo más simple e interpretable. </p>
+  <p>• Al ajustar el Modelo 1 después de la selección de Lasso, obtenemos un total de 24 predictores de los 67 considerados anteriormente.</p>
+  <p>• Respecto al Modelo 2, podemos descartarlo debido al resultado del ANOVA realizado.</p>
+  <p>• Al comparar el error de prueba MSE entre los cuatro modelos anteriores, observamos que el menor MSE corresponde a la regularización Lasso,
+     seguido de la regularización Ridge y, posteriormente, el Modelo 1.</p>
+    </section>
+    
+  <section id="Conclusiones">
+    <h2>Conclusiones</h2>
+    <p>• Tomando en cuenta lo anterior y los errores de prueba MSE, para lograr una mejor predicción del compuesto químico Óxido de Hierro,
+       recomendamos utilizar en primer lugar el modelo de regularización Lasso, el cual además proporciona una mejor interpretación debido 
+       a la reducción en la cantidad de predictores. A continuación, con un ligero aumento en el MSE de prueba en comparación con Ridge, 
+       recomendamos utilizar el Modelo 1.</p>
+    <p>• Con la regresión Lasso, a diferencia de la regresión Ridge, los coeficientes se contraen exactamente a cero, lo que nos brinda un 
+      modelo con menos predictores y mayor interpretabilidad. Esto nos permite identificar las variables que tienen un mayor impacto en
+       la predicción del compuesto químico.</p>
+    <p>• Observamos que las técnicas estudiadas nos ofrecen perspectivas diferentes en términos del modelado de la variable de interés,
+       considerando los distintos predictores.</p>
+    <p>• Por último, es importante destacar la relevancia de la validación cruzada en las técnicas de regularización, ya que el parámetro de 
+      penalización desempeña un papel fundamental en la obtención del menor MSE. </p>
+  </section>
+
+  <section id="Bibliografias">
+
+    <h1>Bibliografía</h1>
+  
+  <div class="reference">
+    <p>Peter Bühlmann, Sara van de Geer, <em>Statistics for High-dimensional Data Methods, Theory and Applications</em>, Springer Heidelberg Dordrecht London, New York (2012).</p>
+  </div>
+  
+  <div class="reference">
+    <p>Gareth James, Daniela Witten, Robert Tibshirani, Trevor Hastie, <em>An Introduction to Statistical Learning with Applications in R, 2nd edition</em>, Springer Verlag, New York (2013).</p>
+  </div>
+  
+  <div class="reference">
+    <p>López Cruz, M. A., <em>Aplicación del Elastic Net LASSO y modelos relacionados en selección genómica basados en marcadores moleculares</em> (Master's thesis), (2012).</p>
+  </div>
+  
+  <div class="reference">
+    <p>García S. Jasmin, <em>Aplicaciones del modelo LASSO bayesiano en finanzas</em>, (2011).</p>
+  </div>
+  
+  <div class="reference">
+    <p>Lücken Giménez, José Ignacio von, <em>Métodos de Regularización Lasso, Ridge y Elastic Net: Una aplicación a los seguros de no vida</em>, (2021).</p>
+  </div>
+  
+  <div class="reference">
+    <p>Trevor Hastie, Robert Tibshirani, Martin Wainwright, <em>Statistical Learning with Sparsity The Lasso and Generalizations</em>, Taylor & Francis Group, LLC CRC Press is an imprint of Taylor & Francis Group, an Informa business, Sound Parkway NW (2015).</p>
+  </div>
+  
+  <div class="reference">
+    <p>George A. F. Seber, Alan J. Lee, <em>An Introduction to Statistical Learning with Applications in R, 2nd edition</em>, John Wiley & Sons, Inc., Hoboken, New Jersey (2003).</p>
+  </div>
+  
+  <div class="reference">
+    <p>Brian S. Everitt, Torten Hothorn, <em>A Handbook Statistical Analyses Using R, 2nd edition</em>, Taylor & Francis Group, LLC CRC Press is an imprint of Taylor & Francis Group, an Informa business, Sound Parkway NW (2010).</p>
+  </div>
+  
+  <div class="reference">
+    <p>Marvin H.J. Gruber, <em>Improving Efficiency by Shrinkage The James-Stein and Ridge Regression Estimators</em>, MARCEL DEKKER. INC, New York (1998).</p>
+  </div>
+  </section>
+
+  </section>
+
+    
+  <div class="github-link">
+      
+    <a href="https://github.com/Grevy-Rapalo/Proyecto2"> Ver documento completo, presentacion y Scrip de R </a>
+  </div>
+</section>
+
+  <section id="contact">
+    <div style="text-align: center;">
+        <h2>Contacto</h2>
+        <hr>
+      </div>
+    <p>Puedes contactarme a través de los siguientes medios:</p>
+    <ul>
+      <li>Email: stibenrapalog@gmail.com</li>
+      <li>Teléfono: +504-89091504</li>
+     <p></p> 
+    <ul class="contact-list">
+      <li><a href="https://www.linkedin.com/in/grevy-rapalo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" alt="LinkedIn"></a></li>
+      <li><a href="https://github.com/grevy-rapalo"><img src="https://w7.pngwing.com/pngs/914/758/png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub"></a></li>
+    </ul>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Grevy Rapalo</p>
+  </footer>
+</body>
+</html>
