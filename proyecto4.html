@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Proyecto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html#about">Sobre mí</a></li>
+        <li><a href="index.html#skills">Habilidades</a></li>
+        <li><a href="index.html#projects">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <div style="text-align: center;">
+      <h2>Control de Libros en una Base de Datos</h2>
+      <hr>
+    </div>
+  </section>
+  <section id="project-details">
+    <h2>Descripción</h2>
+    <p>Este proyecto tiene como objetivo principal la creación y gestión de una base de datos denominada
+         "Control_de_libros". La base de datos está compuesta por varias tablas relacionadas, incluyendo
+          las entidades de Autor, Editorial, Libro y Detalle Autor Libro. Para establecer las relaciones adecuadas
+           entre estas tablas, se implementarán llaves primarias y llaves foráneas. Además, se aplicarán restricciones
+            UNIQUE y DEFAULT en los campos pertinentes de cada tabla, garantizando la integridad y consistencia de los 
+            datos almacenados. Con esta estructura de base de datos, será posible almacenar y consultar información 
+            relacionada con autores, editoriales y libros de manera eficiente y organizada.</p>
+    <p>Una vez creada la estructura de la base de datos, se procederá a agregar los registros necesarios en las tablas, 
+      y se desarrollarón diferentes consultas para obtener información específica de la base de datos  
+    </p>
+    <p>Este proyecto demostrará la capacidad para diseñar y administrar una base de datos, así como la habilidad para 
+        realizar consultas y análisis de datos para obtener información relevante sobre los libros, autores y editoriales 
+        involucrados.</p>
+    <h4>Tecnologias usadas</h4>
+    <p>MySQL Workbench</p>
+    
+  </section>
+
+  <section id="tablas">
+    <h2>Algunas Tablas de la base de datos</h2>
+    <p> A continuación, se muestran diferentes tablas realizadas en la base de datos.</p>
+    
+    <div class="center">Tabla Autor</div>
+    <div class="center">
+        <table border=1>
+            <tr>
+            <td bgcolor=silver class='medium'>codigo_autor</td>
+            <td bgcolor=silver class='medium'>primer_nombre</td>
+            <td bgcolor=silver class='medium'>primer_apellido</td>
+            <td bgcolor=silver class='medium'>fecha_nacimeinto</td>
+            <td bgcolor=silver class='medium'>nacionalidad</td>
+            <td bgcolor=silver class='medium'>edad</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>CM002</td>
+            <td class='normal' valign='top'>Claudia</td>
+            <td class='normal' valign='top'>Martinez</td>
+            <td class='normal' valign='top'>1970-06-10</td>
+            <td class='normal' valign='top'>Salvadorena</td>
+            <td class='normal' valign='top'>45</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>HM005</td>
+            <td class='normal' valign='top'>Helen</td>
+            <td class='normal' valign='top'>Martinez</td>
+            <td class='normal' valign='top'>1980-11-02</td>
+            <td class='normal' valign='top'>Espanola</td>
+            <td class='normal' valign='top'>34</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>JR006</td>
+            <td class='normal' valign='top'>Jose</td>
+            <td class='normal' valign='top'>Roldan</td>
+            <td class='normal' valign='top'>1967-09-13</td>
+            <td class='normal' valign='top'>Colombiana</td>
+            <td class='normal' valign='top'>54</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>NH004</td>
+            <td class='normal' valign='top'>Nuria</td>
+            <td class='normal' valign='top'>Hernandez</td>
+            <td class='normal' valign='top'>1980-09-03</td>
+            <td class='normal' valign='top'>Colombiana</td>
+            <td class='normal' valign='top'>34</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>PL001</td>
+            <td class='normal' valign='top'>Pablo</td>
+            <td class='normal' valign='top'>Lopez</td>
+            <td class='normal' valign='top'>1960-08-19</td>
+            <td class='normal' valign='top'>Colombiana</td>
+            <td class='normal' valign='top'>54</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>PM003</td>
+            <td class='normal' valign='top'>Patricio</td>
+            <td class='normal' valign='top'>Murry</td>
+            <td class='normal' valign='top'>1967-12-12</td>
+            <td class='normal' valign='top'>Espanola</td>
+            <td class='normal' valign='top'>47</td>
+            </tr>
+            </table>
+    </div>
+
+
+ <p></p>
+
+    <div class="center">Tabla Libro</div>
+    <div class="center">
+        <table border=1>
+            <tr>
+            <td bgcolor=silver class='medium'>codigo_libro</td>
+            <td bgcolor=silver class='medium'>titulo</td>
+            <td bgcolor=silver class='medium'>isbn</td>
+            <td bgcolor=silver class='medium'>año_edicion</td>
+            <td bgcolor=silver class='medium'>codigo_editorial</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>ABESP00006</td>
+            <td class='normal' valign='top'>Administracion de Base de Datos</td>
+            <td class='normal' valign='top'>585885-88484848</td>
+            <td class='normal' valign='top'>2010</td>
+            <td class='normal' valign='top'>ED002</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>BDCOL00001</td>
+            <td class='normal' valign='top'>Fundamentos de Base de Datos</td>
+            <td class='normal' valign='top'>12333-8999988</td>
+            <td class='normal' valign='top'>2004</td>
+            <td class='normal' valign='top'>ED001</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>BDESP00002</td>
+            <td class='normal' valign='top'>La Biblia de SQL Server 2008</td>
+            <td class='normal' valign='top'>3444-99888-88</td>
+            <td class='normal' valign='top'>2008</td>
+            <td class='normal' valign='top'>ED002</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>DWING00003</td>
+            <td class='normal' valign='top'>Diseno Web y Hojas de Estilo</td>
+            <td class='normal' valign='top'>300096-99999</td>
+            <td class='normal' valign='top'>2010</td>
+            <td class='normal' valign='top'>ED003</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>HJMEX00005</td>
+            <td class='normal' valign='top'>Uso de hojas de estilo con JavaScript</td>
+            <td class='normal' valign='top'>0990-87878787</td>
+            <td class='normal' valign='top'>2008</td>
+            <td class='normal' valign='top'>ED004</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>PRCOL00002</td>
+            <td class='normal' valign='top'>Programacion Orientada a Objetos</td>
+            <td class='normal' valign='top'>8999-9999444</td>
+            <td class='normal' valign='top'>2011</td>
+            <td class='normal' valign='top'>ED001</td>
+            </tr>
+            
+            <tr>
+            <td class='normal' valign='top'>PRING00003</td>
+            <td class='normal' valign='top'>Programacion en C/C++</td>
+            <td class='normal' valign='top'>45667-87878</td>
+            <td class='normal' valign='top'>2009</td>
+            <td class='normal' valign='top'>ED005</td>
+            </tr>
+            </table>
+    </div>
+
+  </section>
+  
+
+
+  <section id="project-consultas">
+    <h2>ALgunas Consultas</h2>
+    <p> A continuación, se muestran diferentes consultas realizadas en la base de datos.</p>
+    
+
+    <div style="text-align: center;">
+        <pre style="display: inline-block; text-align: left;">
+          <code style="white-space: pre;">
+            -- 1 Mostrar el primer nombre, primer apellido de los autores junto con el
+            -- título de libro que estos han escrito.
+            
+            SELECT primer_nombre, primer_apellido, libro.titulo
+            FROM autor
+            JOIN detalle_aut_lib ON autor.codigo_autor = detalle_aut_lib.codigo_autor
+            JOIN libro ON libro.codigo_libro = detalle_aut_lib.codigo_libro;
+          </code>
+        </pre> 
+      </div>    
+  <div class="center">
+    <table border="1">
+      <tr>
+        <td bgcolor="silver" class="medium">primer_nombre</td>
+        <td bgcolor="silver" class="medium">primer_apellido</td>
+        <td bgcolor="silver" class="medium">titulo</td>
+      </tr>
+
+      <tr>
+        <td class="normal" valign="top">Pablo</td>
+        <td class="normal" valign="top">Lopez</td>
+        <td class="normal" valign="top">Fundamentos de Base de Datos</td>
+      </tr>
+
+      <tr>
+        <td class="normal" valign="top">Nuria</td>
+        <td class="normal" valign="top">Hernandez</td>
+        <td class="normal" valign="top">Fundamentos de Base de Datos</td>
+      </tr>
+
+      <tr>
+        <td class="normal" valign="top">Claudia</td>
+        <td class="normal" valign="top">Martinez</td>
+        <td class="normal" valign="top">Programacion Orientada a Objetos</td>
+      </tr>
+
+      <tr>
+        <td class="normal" valign="top">Patricio</td>
+        <td class="normal" valign="top">Murry</td>
+        <td class="normal" valign="top">La Biblia de SQL Server 2008</td>
+      </tr>
+
+      <tr>
+        <td class="normal" valign="top">Patricio</td>
+        <td class="normal" valign="top">Murry</td>
+        <td class="normal" valign="top">Diseno Web y Hojas de Estilo</td>
+      </tr>
+
+      <tr>
+        <td class="normal" valign="top">Helen</td>
+        <td class="normal" valign="top">Martinez</td>
+        <td class="normal" valign="top">Programacion en C/C++</td>
+      </tr>
+
+      <tr>
+        <td class="normal" valign="top">Claudia</td>
+        <td class="normal" valign="top">Martinez</td>
+        <td class="normal" valign="top">Administracion de Base de Datos</td>
+      </tr>
+
+      <tr>
+        <td class="normal" valign="top">Nuria</td>
+        <td class="normal" valign="top">Hernandez</td>
+        <td class="normal" valign="top">Uso de hojas de estilo con JavaScript</td>
+      </tr>
+    </table>
+  </div>
+
+  <hr> 
+  <div style="text-align: center;">
+    <pre style="display: inline-block; text-align: left;">
+      <code style="white-space: pre;">
+            -- 2 Mostrar el nombre de la editorial y el título del libro
+
+            select editorial.nombre, libro.titulo from
+            editorial join libro on editorial.codigo_editorial = libro.codigo_editorial;
+      </code>
+    </pre> 
+  </div>
+  
+<div class="center">
+<table border="1">
+  
+  <tr>
+    <td bgcolor=silver class='medium'>nombre</td>
+    <td bgcolor=silver class='medium'>titulo</td>
+ </tr>
+    
+    <tr>
+    <td class='normal' valign='top'>Anaya Multimedia</td>
+    <td class='normal' valign='top'>Administracion de Base de Datos</td>
+    </tr>
+    
+    <tr>
+    <td class='normal' valign='top'>Omega 2000</td>
+    <td class='normal' valign='top'>Fundamentos de Base de Datos</td>
+    </tr>
+    
+    <tr>
+    <td class='normal' valign='top'>Anaya Multimedia</td>
+    <td class='normal' valign='top'>La Biblia de SQL Server 2008</td>
+    </tr>
+    
+    <tr>
+    <td class='normal' valign='top'>McGrawHill</td>
+    <td class='normal' valign='top'>Diseno Web y Hojas de Estilo</td>
+    </tr>
+    
+    <tr>
+    <td class='normal' valign='top'>Reyes</td>
+    <td class='normal' valign='top'>Uso de hojas de estilo con JavaScript</td>
+    </tr>
+    
+    <tr>
+    <td class='normal' valign='top'>Omega 2000</td>
+    <td class='normal' valign='top'>Programacion Orientada a Objetos</td>
+    </tr>
+    
+    <tr>
+    <td class='normal' valign='top'>Prentice Hall</td>
+    <td class='normal' valign='top'>Programacion en C/C++</td>
+    </tr>
+
+  
+</table>
+</div>
+      
+<hr> 
+<div style="text-align: center;">
+    <pre style="display: inline-block; text-align: left;">
+      <code style="white-space: pre;">
+            -- 3 Mostrar los nombres de los autores y el título del libro 
+            -- donde el año de edición sea el menos actual
+
+            SELECT autor.primer_nombre, libro.titulo, libro.ano_edicion AS edicion_actual
+            FROM autor
+            JOIN detalle_aut_lib ON autor.codigo_autor = detalle_aut_lib.codigo_autor
+            JOIN libro ON libro.codigo_libro = detalle_aut_lib.codigo_libro
+            WHERE libro.ano_edicion = (
+            SELECT MIN(ano_edicion)
+            FROM libro
+            );
+      </code>
+    </pre> 
+  </div>
+  
+<div class="center">
+    <table border=1>
+        <tr>
+        <td bgcolor=silver class='medium'>primer_nombre</td>
+        <td bgcolor=silver class='medium'>titulo</td>
+        <td bgcolor=silver class='medium'>edicion_actual</td>
+        </tr>
+        
+        <tr>
+        <td class='normal' valign='top'>Pablo</td>
+        <td class='normal' valign='top'>Fundamentos de Base de Datos</td>
+        <td class='normal' valign='top'>2004</td>
+        </tr>
+        
+        <tr>
+        <td class='normal' valign='top'>Nuria</td>
+        <td class='normal' valign='top'>Fundamentos de Base de Datos</td>
+        <td class='normal' valign='top'>2004</td>
+        </tr>
+        </table>
+</div>
+  
+
+    
+    
+  </section>
+</div>
+<div class="github-link">
+  <a href="https://github.com/Grevy-Rapalo/Proyecto4">Ver script MySQL de creación, inserción y consultas</a> 
+  
+</div>
+
+ 
+
+  <section id="contact">
+    <div style="text-align: center;">
+        <h2>Contacto</h2>
+        <hr>
+      </div>
+    <p>Puedes contactarme a través de los siguientes medios:</p>
+    <ul>
+      <li>Email: stibenrapalog@gmail.com</li>
+      <li>Teléfono: +504-89091504</li>
+     <p></p> 
+    <ul class="contact-list">
+      <li><a href="https://www.linkedin.com/in/grevy-rapalo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" alt="LinkedIn"></a></li>
+      <li><a href="https://github.com/grevy-rapalo"><img src="https://w7.pngwing.com/pngs/914/758/png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="GitHub"></a></li>
+    </ul>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Grevy Rapalo</p>
+  </footer>
+</body>
+</html>
